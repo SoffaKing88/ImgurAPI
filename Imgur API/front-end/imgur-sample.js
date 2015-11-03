@@ -1,5 +1,5 @@
 $(function () {
-	$("#pop-images")
+	//$("#pop-images")
 	$("#search-button").click(function () {
 		$.ajax( {
 			url: "https://api.imgur.com/3/image/aHVsqba",
