@@ -1,18 +1,19 @@
 $(function () {
 
 	$("#search-button").click(function () {
-		$.getJSON(
-			// URL
-			"https://api.imgur.com/3/image/{id}",
-
-			// parameters
-			{
-				q: $("#search-term").val(),
-				api_key: "60a9f235e6726aa"
+		$.ajax( {
+			url: "https://api.imgur.com/3/image/2bzOUrt",
+				headers: {
+					"Authorization": "Client-ID 60a9f235e6726aa"
+				}
 			}
 		).done(function (result) {
-			console.log(result.data..............);
+			img = $('<img>').attr('src', result.data.link);
+			console.log(img);
+			$("#image-list").append(img);
+			console.log(result.data.link);
 		});
+
 	});
 
 });
