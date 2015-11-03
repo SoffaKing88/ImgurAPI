@@ -1,8 +1,8 @@
 $(function () {
-	//$("#pop-images")
-	$("#search-button").click(function () {
+
+    $("#search-button").click(function () {
 		$.ajax( {
-			url: "https://api.imgur.com/3/image/aHVsqba",
+			url: "http://api.imgur.com/endpoints/gallery#gallery-search",
 				headers: {
 					"Authorization": "Client-ID 60a9f235e6726aa"
 				}
@@ -12,8 +12,31 @@ $(function () {
 			console.log(img);
 			$("#single-image").append(img);
 			console.log(result.data.link);
+			$('#search-button').attr("disabled", true);
 		});
+	});
 
+	$("#upload-button").click(function () {
+		$.ajax({ 
+    			url: 'https://api.imgur.com/3/upload',
+    			headers: {
+        			'Authorization': 'Client-ID 60a9f235e6726aa'
+    			},
+    			type: 'POST',
+    			data: {
+        		'image': 'venom.jpg'
+    			},
+    			success: function() { console.log('cool'); }
+		});
+	});
+
+	$.ajax({
+		url: "https://api.imgur.com/3/account/me",
+		headers: {
+			"Authorization": "Client-ID 60a9f235e6726aa"
+		}
+	}).done(function (result) {
+		console.log(result);
 	});
 
     $.ajax({
@@ -22,6 +45,9 @@ $(function () {
             "Authorization": "Client-ID 60a9f235e6726aa"
         }
     }).done(function (result) {
+    	//img = $('<img>').attr('src', result.data.link);
+    	//console.log(img);
+    	//$("#pop-images").append(img);
         console.log(result);
     });
 });
