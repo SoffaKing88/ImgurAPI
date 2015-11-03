@@ -30,14 +30,14 @@ $(function () {
 		});
 	});
 
-	$.ajax({
-		url: "https://api.imgur.com/3/account/me",
-		headers: {
-			"Authorization": "Client-ID 60a9f235e6726aa"
-		}
-	}).done(function (result) {
-		console.log(result);
-	});
+	//$.ajax({
+	//	url: "https://api.imgur.com/3/account/me",
+	//	headers: {
+	//		"Authorization": "Client-ID 60a9f235e6726aa"
+	//	}
+	//}).done(function (result) {
+	//	console.log(result);
+	//});
 
     $.ajax({
         url: "https://api.imgur.com/3/gallery/hot/viral/0.json",
