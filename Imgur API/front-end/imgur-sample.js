@@ -1,8 +1,8 @@
 $(function () {
-
+	$("#pop-images")
 	$("#search-button").click(function () {
 		$.ajax( {
-			url: "https://api.imgur.com/3/image/2bzOUrt",
+			url: "https://api.imgur.com/3/image/aHVsqba",
 				headers: {
 					"Authorization": "Client-ID 60a9f235e6726aa"
 				}
@@ -10,7 +10,7 @@ $(function () {
 		).done(function (result) {
 			img = $('<img>').attr('src', result.data.link);
 			console.log(img);
-			$("#image-list").append(img);
+			$("#single-image").append(img);
 			console.log(result.data.link);
 		});
 
