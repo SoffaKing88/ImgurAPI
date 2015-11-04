@@ -6,7 +6,9 @@ $(function () {
 				headers: {
 					"Authorization": "Client-ID 60a9f235e6726aa"
 				},
-			data: $("search-term").val()
+			data: {
+				'q' : $("#search-term").val()
+				}
 			}
 		).done(function (result) {
 			console.log(result)
